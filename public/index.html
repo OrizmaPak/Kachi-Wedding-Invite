@@ -15,6 +15,7 @@
     <section class="cover" id="cover" aria-label="Closed wedding invitation" hidden>
       <div class="gate-frame">
         <div class="gate-lining" aria-hidden="true">
+          <img src="assets/photos/among-the-flowers-medium.webp" width="560" height="700" alt="" decoding="async">
           <span class="monogram">G<i>&amp;</i>G</span>
         </div>
         <div class="gate-panel gate-panel-left" aria-hidden="true">
@@ -38,6 +39,12 @@
     <article class="invitation" id="invitation">
       <section class="welcome" id="welcome" aria-labelledby="invite-title">
         <img class="welcome-flower" src="assets/botanical-spray.webp" width="667" height="1000" alt="" decoding="async">
+        <figure class="hero-portrait">
+          <picture>
+            <source media="(max-width: 760px)" srcset="assets/photos/garden-walk-medium.webp">
+            <img src="assets/photos/garden-walk.webp" width="1120" height="1400" alt="Ginikachi and Godwin holding hands on a garden walk" fetchpriority="high">
+          </picture>
+        </figure>
         <div class="welcome-copy">
           <p class="caps hero-line">Save the date</p>
           <h1 id="invite-title" tabindex="-1">
@@ -56,6 +63,7 @@
           <nav aria-label="Invitation">
             <a href="#details">Details</a>
             <a href="#events">Events</a>
+          <a href="#gallery">Gallery</a>
             <a class="nav-rsvp" href="#rsvp">RSVP</a>
           </nav>
         </div>
@@ -136,7 +144,52 @@
         </div>
       </section>
 
-      <section class="toast scene" aria-labelledby="toast-title">
+      <section class="photo-gallery scene" id="gallery" aria-labelledby="gallery-title">
+        <header class="section-heading" data-reveal>
+          <h2 id="gallery-title">In <i>pictures</i></h2>
+        </header>
+        <div class="album" data-reveal>
+          <div class="album-track" id="album-track" aria-label="Portraits of Ginikachi and Godwin">
+            <a class="photo-print" href="assets/photos/garden-walk.webp">
+              <img src="assets/photos/garden-walk-medium.webp" width="560" height="700" alt="Ginikachi and Godwin holding hands on a garden walk" loading="lazy" decoding="async">
+              <span>A garden walk</span>
+            </a>
+            <a class="photo-print" href="assets/photos/at-sunset.webp">
+              <img src="assets/photos/at-sunset-medium.webp" width="560" height="700" alt="Ginikachi and Godwin together on a rooftop at sunset" loading="lazy" decoding="async">
+              <span>At sunset</span>
+            </a>
+            <a class="photo-print" href="assets/photos/on-the-steps.webp">
+              <img src="assets/photos/on-the-steps-medium.webp" width="560" height="700" alt="The couple in lilac and emerald on the stone steps" loading="lazy" decoding="async">
+              <span>On the steps</span>
+            </a>
+            <a class="photo-print" href="assets/photos/among-the-flowers.webp">
+              <img src="assets/photos/among-the-flowers-medium.webp" width="560" height="700" alt="The couple seated together under pink bougainvillea" loading="lazy" decoding="async">
+              <span>Among the flowers</span>
+            </a>
+          </div>
+          <div class="album-actions">
+            <button class="photo-control" type="button" data-album-step="-1" aria-label="Scroll to earlier photos" aria-controls="album-track" disabled><span class="photo-arrow" aria-hidden="true"></span></button>
+            <button class="photo-control" type="button" data-album-step="1" aria-label="Scroll to more photos" aria-controls="album-track"><span class="photo-arrow" aria-hidden="true"></span></button>
+          </div>
+        </div>
+        <dialog class="photo-viewer" aria-labelledby="photo-viewer-caption">
+          <div class="photo-viewer-bar">
+            <p class="caps" id="photo-viewer-count" aria-live="polite"></p>
+            <button class="photo-control photo-close" type="button" aria-label="Close photo" autofocus><span aria-hidden="true"></span></button>
+          </div>
+          <figure>
+            <img width="1120" height="1400" alt="" decoding="async">
+            <figcaption id="photo-viewer-caption"></figcaption>
+          </figure>
+          <div class="photo-viewer-actions">
+            <button class="photo-control" type="button" data-photo-step="-1" aria-label="Previous photo"><span class="photo-arrow" aria-hidden="true"></span></button>
+            <button class="photo-control" type="button" data-photo-step="1" aria-label="Next photo"><span class="photo-arrow" aria-hidden="true"></span></button>
+          </div>
+        </dialog>
+      </section>
+
+      <section class="toast scene toast-with-portrait" aria-labelledby="toast-title">
+        <img class="toast-portrait" src="assets/photos/at-sunset.webp" width="1120" height="1400" alt="" loading="lazy" decoding="async">
         <div class="section-heading" data-reveal>
           <h2 class="caps" id="toast-title">A toast</h2>
           <figure>

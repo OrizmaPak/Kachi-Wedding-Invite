@@ -672,3 +672,200 @@ details[open] > :not(summary) { animation: rise 280ms ease both; }
   }
   [data-reveal].reveal-ready { opacity: 1; transform: none; }
 }
+
+.gate-lining { overflow: hidden; }
+.gate-lining img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+}
+.gate-lining .monogram {
+  position: absolute;
+  z-index: 1;
+  bottom: 1.5rem;
+  color: #fff7ee;
+  font-size: 2.8rem;
+  text-shadow: 0 2px 9px #1b1522;
+}
+
+.hero-portrait {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: clamp(5%, 9vw, 12%);
+  translate: 0 -50%;
+  rotate: 2deg;
+  width: min(34vw, 27rem);
+  max-height: 74svh;
+  aspect-ratio: 4 / 5;
+  margin: 0;
+  padding: clamp(0.38rem, 0.85vw, 0.78rem);
+  background: #fff8ee;
+  box-shadow: 0 0.8rem 2.7rem #4e2d4340;
+}
+.hero-portrait picture, .hero-portrait img { display: block; width: 100%; height: 100%; }
+.hero-portrait img { object-fit: cover; object-position: center 36%; }
+.invitation.is-sealed .hero-portrait { opacity: 0; }
+.invitation.is-revealing .hero-portrait { animation: portrait-in 1150ms 150ms ease-out both; }
+@keyframes portrait-in {
+  from { opacity: 0; transform: translateY(1.75rem) rotate(1.5deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+.photo-gallery { background: var(--grain), #f7eced; }
+.photo-gallery::before { opacity: 0.36; }
+.photo-gallery::after { opacity: 0.28; }
+.album { width: min(100%, 71rem); min-width: 0; margin-top: 2rem; }
+.album-track {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(13rem, 27vw, 18rem);
+  gap: clamp(0.9rem, 2.5vw, 1.7rem);
+  padding: 0.6rem 0.55rem 1rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 0.55rem;
+  scrollbar-width: thin;
+  scrollbar-color: #9f7f9a #e8d9df;
+}
+.photo-print {
+  display: block;
+  padding: 0.55rem 0.55rem 0;
+  scroll-snap-align: start;
+  border: 1px solid #d9bdce;
+  background: #fff8f0;
+  box-shadow: 0 0.4rem 0.7rem #422b4117;
+  color: var(--ink);
+  text-align: center;
+  text-decoration: none;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.photo-print:hover, .photo-print:focus-visible {
+  transform: translateY(-0.22rem);
+  box-shadow: 0 0.6rem 0.85rem #422b4126;
+}
+.photo-print img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; background: #e5d2de; }
+.photo-print > span { display: block; padding: 0.55rem 0.25rem 0.62rem; font: italic 500 1.55rem/1.08 var(--serif); }
+.album-actions, .photo-viewer-actions { display: flex; justify-content: center; gap: 0.65rem; }
+.album-actions { margin-top: 0.85rem; }
+.photo-control {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #ae91ac;
+  border-radius: 50%;
+  background: #fff7ef;
+  color: var(--ink);
+  cursor: pointer;
+}
+.photo-control:hover { background: #f3e3eb; }
+.photo-control:disabled { opacity: 0.45; cursor: default; }
+.photo-arrow { position: relative; width: 0.87rem; height: 0.87rem; }
+.photo-arrow::before, .photo-arrow::after {
+  content: '';
+  position: absolute;
+}
+.photo-arrow::before { top: 47%; left: 7%; width: 83%; height: 1px; background: currentColor; }
+.photo-arrow::after { top: 25%; right: 10%; width: 47%; height: 47%; border-top: 1px solid; border-right: 1px solid; transform: rotate(45deg); }
+[data-album-step="-1"] .photo-arrow, [data-photo-step="-1"] .photo-arrow { transform: scaleX(-1); }
+
+html:has(.photo-viewer[open]) { overflow: hidden; }
+.photo-viewer {
+  width: min(92vw, 39rem);
+  max-height: 94dvh;
+  box-sizing: border-box;
+  border: 1px solid #c4a5be;
+  padding: clamp(0.6rem, 2vw, 1.25rem);
+  background: #fbf3ed;
+  color: var(--ink);
+  box-shadow: 0 1.2rem 4rem #1b1120a3;
+  text-align: center;
+}
+.photo-viewer::backdrop { background: #24132ce0; backdrop-filter: blur(12px); }
+.photo-viewer-bar { display: flex; align-items: center; justify-content: space-between; }
+.photo-viewer-bar p { padding-inline-start: 0.4rem; color: var(--muted); }
+.photo-close span { position: relative; width: 0.86rem; height: 0.86rem; }
+.photo-close span::before, .photo-close span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 48%;
+  width: 100%;
+  height: 1px;
+  transform: rotate(45deg);
+  background: currentColor;
+}
+.photo-close span::after { transform: rotate(-45deg); }
+.photo-viewer figure { margin: 0.55rem 0 0.65rem; }
+.photo-viewer img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: min(63dvh, 43rem);
+  margin-inline: auto;
+  object-fit: contain;
+}
+.photo-viewer figcaption { margin-top: 0.5rem; font: italic 500 1.6rem/1 var(--serif); }
+
+.toast-with-portrait {
+  min-height: min(70svh, 42rem);
+  align-content: center;
+  justify-items: start;
+  background: radial-gradient(ellipse at left, #564057, #34213b);
+  color: #fff4f0;
+  text-align: left;
+}
+.toast-with-portrait::before { display: block; opacity: 0.22; }
+.toast-with-portrait::after { display: none; }
+.toast-with-portrait .section-heading { position: relative; width: min(60%, 34rem); }
+.toast-with-portrait figcaption { color: #e6cbe1; }
+.toast-portrait {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 54%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 12%;
+  mask-image: linear-gradient(90deg, transparent, #000 34%);
+}
+
+@media (max-width: 760px) {
+  .welcome:has(.hero-portrait) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2.15rem;
+    padding-block: clamp(4.1rem, 10svh, 7rem) 4.25rem;
+  }
+  .hero-portrait {
+    position: relative;
+    order: 1;
+    top: auto;
+    right: auto;
+    translate: none;
+    z-index: 0;
+    align-self: center;
+    width: min(76vw, 24rem);
+    max-height: none;
+  }
+  .welcome-flower { bottom: -7%; right: -15%; opacity: 0.55; }
+  .invite-nav nav { gap: clamp(0.52rem, 2.5vw, 1rem); }
+  .nav-rsvp { padding-inline: 0.62rem; }
+  .album-track { grid-auto-columns: min(73vw, 16rem); }
+  .toast-with-portrait { padding-top: min(80vw, 20rem); }
+  .toast-with-portrait .section-heading { width: 100%; text-align: center; }
+  .toast-portrait {
+    width: 100%;
+    height: min(83vw, 21rem);
+    object-position: center 9%;
+    mask-image: linear-gradient(#000 59%, transparent);
+  }
+}
