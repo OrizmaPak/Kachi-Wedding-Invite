@@ -366,6 +366,16 @@ html:has(.cover:not([hidden])) { overflow: hidden; }
   border: 1px solid #0002;
 }
 
+.toast { text-align: center; }
+.toast h2 { margin-block: 0.75rem 1.3rem; }
+.toast figure { width: min(100%, 36rem); margin: 0 auto; }
+.toast blockquote {
+  margin: 0;
+  font: italic 500 clamp(1.6rem, 4.5vw, 2.5rem)/1.2 var(--serif);
+  text-wrap: pretty;
+}
+.toast figcaption { margin-top: 1rem; color: var(--emerald); }
+
 .rsvp h2 { margin-block: 0.75rem 0.9rem; }
 .rsvp form { display: grid; gap: 0.65rem; text-align: left; width: min(100%, 470px); margin: 2rem auto 0; }
 .rsvp label, .rsvp legend { font-size: 0.88rem; font-weight: 600; }
