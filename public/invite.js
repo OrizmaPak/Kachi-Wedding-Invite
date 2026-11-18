@@ -4,7 +4,7 @@ const headline = document.querySelector('#invite-title');
 const bow = document.querySelector('.bow-button');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-const ceremony = new Date('2027-02-20T16:00:00+01:00');
+const ceremony = new Date('2026-12-12T10:00:00+01:00');
 const countdownFields = ['days', 'hours', 'minutes', 'seconds'].map(
   (unit) => document.getElementById(unit),
 );
