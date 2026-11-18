@@ -38,6 +38,7 @@
 
     <article class="invitation" id="invitation">
       <section class="welcome" id="welcome" aria-labelledby="invite-title">
+        <div class="welcome-threads" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <img class="welcome-flower" src="assets/botanical-spray.webp" width="667" height="1000" alt="" decoding="async">
         <figure class="hero-portrait">
           <picture>
@@ -64,7 +65,7 @@
             <a href="#details">Details</a>
             <a href="#events">Events</a>
           <a href="#gallery">Gallery</a>
-            <a class="nav-rsvp" href="#rsvp">RSVP</a>
+            <a class="nav-map" href="#location">Map</a>
           </nav>
         </div>
       </header>
@@ -126,7 +127,7 @@
             <div class="event-address">
               <p class="event-venue">The Golden Heart Place</p>
               <p>Dominion City Avenue, Akai-Effa, by Jonathan Bypass, Cross River State</p>
-              <a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=The+Golden+Heart+Place+Dominion+City+Avenue+Akai-Effa+Cross+River" target="_blank" rel="noopener noreferrer">Get directions <span class="diagonal-arrow" aria-hidden="true"></span></a>
+              <a class="text-link" href="#location">See the map <span class="down-arrow" aria-hidden="true"></span></a>
             </div>
           </details>
         </div>
@@ -201,25 +202,25 @@
         </div>
       </section>
 
-      <section class="rsvp scene" id="rsvp" aria-labelledby="rsvp-title">
-        <header class="section-heading" data-reveal>
-          <h2 id="rsvp-title">Kindly <i>reply</i></h2>
-          <p>We hope you can celebrate with us.</p>
-        </header>
-        <form id="rsvp-form" data-reveal>
-          <label for="guest-name">Your name</label>
-          <input id="guest-name" name="name" autocomplete="name" maxlength="120" required>
-          <fieldset>
-            <legend>Will you be joining us?</legend>
-            <label class="radio-choice"><input type="radio" name="attendance" value="yes" required> Joyfully accepts</label>
-            <label class="radio-choice"><input type="radio" name="attendance" value="no"> Regretfully declines</label>
-          </fieldset>
-          <label for="message">A note for us <span>(optional)</span></label>
-          <textarea id="message" name="message" rows="3" maxlength="500"></textarea>
-          <button class="pill" type="submit">Try the RSVP <span class="diagonal-arrow" aria-hidden="true"></span></button>
-          <p class="sample-note">This sample won’t send or save your response.</p>
-          <p class="form-feedback" id="form-feedback" role="status" hidden></p>
-        </form>
+      <section class="location scene" id="location" aria-labelledby="location-title">
+        <div class="location-card" data-reveal>
+          <div class="location-copy">
+            <p class="caps">Holy matrimony</p>
+            <h2 id="location-title">The Golden<br>Heart Place</h2>
+            <address>Dominion City Avenue, Akai-Effa, by Jonathan Bypass, Cross River State</address>
+            <a class="pill" href="https://www.google.com/maps/search/?api=1&amp;query=Akai+Effa,+Calabar,+Cross+River,+Nigeria" target="_blank" rel="noopener noreferrer">Open area in Google Maps <span class="diagonal-arrow" aria-hidden="true"></span></a>
+          </div>
+          <figure class="location-map">
+            <iframe
+              title="Google Maps view of the Akai-Effa area, Calabar"
+              src="https://www.google.com/maps?q=Akai+Effa,+Calabar,+Cross+River,+Nigeria&amp;z=15&amp;output=embed"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              width="620"
+              height="420"></iframe>
+            <figcaption class="caps">Akai-Effa, Calabar · Area map</figcaption>
+          </figure>
+        </div>
       </section>
 
       <footer class="invite-footer">

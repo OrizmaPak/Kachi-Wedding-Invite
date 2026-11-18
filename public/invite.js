@@ -4,6 +4,7 @@ const headline = document.querySelector('#invite-title');
 const bow = document.querySelector('.bow-button');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const countdown = document.querySelector('.countdown');
+const welcome = document.querySelector('#welcome');
 const countdownGrid = document.querySelector('.countdown-grid');
 const countdownComplete = document.querySelector('#countdown-complete');
 
@@ -86,25 +87,6 @@ document.querySelector('#replay').addEventListener('click', () => {
   showCover({ focusBow: true });
 });
 
-const rsvpForm = document.querySelector('#rsvp-form');
-const feedback = document.querySelector('#form-feedback');
-
-rsvpForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const response = new FormData(rsvpForm);
-  const name = response.get('name').trim();
-  if (!name) {
-    document.querySelector('#guest-name').value = '';
-    rsvpForm.reportValidity();
-    return;
-  }
-
-  const attendance = response.get('attendance') === 'yes' ? 'Joyfully accepts' : 'Regretfully declines';
-  feedback.textContent = 'Thanks, ' + name + '. Your sample response was “' + attendance + '.”';
-  feedback.hidden = false;
-  rsvpForm.reset();
-});
-
 function linkedSection() {
   const target = document.getElementById(location.hash.slice(1));
   return target?.closest('#invitation') ? target : null;
@@ -143,10 +125,13 @@ function prepareScrollReveals() {
     entrance.observe(element);
   }
 
-  const petals = new IntersectionObserver(([entry]) => {
-    countdown.classList.toggle('has-drift', entry.isIntersecting);
+  const motion = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      entry.target.classList.toggle('has-motion', entry.isIntersecting);
+    }
   }, { threshold: 0.15 });
-  petals.observe(countdown);
+  motion.observe(countdown);
+  motion.observe(welcome);
 }
 
 const navigation = document.querySelector('.invite-nav');
@@ -161,7 +146,10 @@ function updateNavigation() {
   const threshold = navigation.offsetHeight + 48;
   const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
   const progress = documentHeight > 0 ? Math.min(1, Math.max(0, window.scrollY / documentHeight)) : 0;
-  const active = navigationLinks.findLast(({ section }) => section.getBoundingClientRect().top <= threshold);
+  const atEnd = documentHeight > 0 && documentHeight - window.scrollY <= 3;
+  const active = atEnd
+    ? navigationLinks.at(-1)
+    : navigationLinks.findLast(({ section }) => section.getBoundingClientRect().top <= threshold);
 
   navigation.style.setProperty('--progress', progress);
   for (const item of navigationLinks) {
