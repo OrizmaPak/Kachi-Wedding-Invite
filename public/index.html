@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f1e7">
+  <meta name="description" content="A sample garden wedding invitation, with an envelope to open and details for the celebration.">
+  <title>Kachi &amp; Ada | Wedding Invitation</title>
+  <link rel="icon" type="image/svg+xml" href="assets/monogram.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="invite.js" defer></script>
+</head>
+<body>
+  <main>
+    <section class="cover" id="cover" aria-label="Invitation envelope">
+      <header class="stationery-header">
+        <span class="caps">The wedding of</span>
+        <span class="monogram" aria-hidden="true">K<span>&amp;</span>A</span>
+        <span class="caps">Lagos, Nigeria</span>
+      </header>
+      <div class="cover-spread">
+        <div class="cover-copy">
+          <p class="caps cover-kicker">Together with our families</p>
+          <h1><span>You’re</span> <i>invited.</i></h1>
+          <div class="petal-divider" aria-hidden="true"><span>✧</span></div>
+          <p class="cover-date"><time datetime="2027-02-20">Saturday, 20 February 2027</time></p>
+          <button class="pill open-button" type="button" data-open>Open the invitation <span class="diagonal-arrow" aria-hidden="true"></span></button>
+        </div>
+        <button class="envelope" type="button" data-open aria-label="Open the ribbon-tied invitation">
+          <img src="assets/envelope.webp" width="1100" height="1375" alt="" fetchpriority="high">
+          <span class="envelope-panel envelope-panel-left" aria-hidden="true"></span>
+          <span class="envelope-panel envelope-panel-right" aria-hidden="true"></span>
+        </button>
+      </div>
+      <footer class="cover-footer caps"><span>Sample wedding invitation</span><span>20.02.27</span></footer>
+      <noscript><p class="noscript">Enable JavaScript to open this sample invitation.</p></noscript>
+    </section>
+
+    <article class="invitation" id="invitation" hidden>
+      <header class="invite-nav">
+        <a class="monogram" href="#welcome" aria-label="Back to the top">K<span>&amp;</span>A</a>
+        <nav aria-label="Invitation">
+          <a href="#details">Details</a>
+          <a href="#schedule">Schedule</a>
+          <a class="nav-rsvp" href="#rsvp">RSVP</a>
+        </nav>
+      </header>
+
+      <section class="welcome" id="welcome" aria-labelledby="invite-title">
+        <div class="welcome-copy">
+          <p class="caps">Together with our families</p>
+          <h1 id="invite-title" tabindex="-1">Kachi <i>&amp;</i> Ada</h1>
+          <p class="welcome-note">We would love for you to join us<br>as we say our vows and celebrate.</p>
+          <p class="caps invite-date"><time datetime="2027-02-20">Saturday, 20 February 2027</time> <span aria-hidden="true">·</span> Lagos, Nigeria</p>
+          <a class="pill" href="#details">Explore the invitation <span aria-hidden="true">↓</span></a>
+          <p class="sample-note">Sample invitation · wedding details are placeholders</p>
+        </div>
+        <img class="welcome-art" src="assets/garden.webp" width="1100" height="733" alt="" decoding="async">
+      </section>
+
+      <section class="countdown band" id="details" aria-labelledby="countdown-title">
+        <div class="petal-divider" aria-hidden="true"><span>✧</span></div>
+        <h2 id="countdown-title">Until we say <i>I do</i></h2>
+        <div class="countdown-grid" role="group" aria-label="Countdown to the ceremony">
+          <div><strong id="days">—</strong><span class="caps">Days</span></div>
+          <div><strong id="hours">—</strong><span class="caps">Hours</span></div>
+          <div><strong id="minutes">—</strong><span class="caps">Minutes</span></div>
+          <div><strong id="seconds">—</strong><span class="caps">Seconds</span></div>
+        </div>
+      </section>
+
+      <section class="venue section" aria-labelledby="venue-title">
+        <div class="venue-image">
+          <img src="assets/garden.webp" width="1100" height="733" alt="Watercolor of a garden pavilion framed by flowers" loading="lazy">
+        </div>
+        <div class="venue-copy">
+          <p class="caps">The venue</p>
+          <h2 id="venue-title">The Garden House</h2>
+          <p>Victoria Island, Lagos, Nigeria</p>
+          <p>Join us for a garden ceremony followed by dinner and dancing.</p>
+          <a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=Victoria+Island+Lagos+Nigeria" target="_blank" rel="noopener noreferrer">View the area on Google Maps <span class="diagonal-arrow" aria-hidden="true"></span></a>
+        </div>
+      </section>
+
+      <section class="schedule band" id="schedule" aria-labelledby="schedule-title">
+        <p class="caps">Saturday, 20 February</p>
+        <h2 id="schedule-title">The order of the day</h2>
+        <ol class="timeline">
+          <li><time datetime="2027-02-20T15:30:00+01:00">3:30 PM</time><div><h3>Guest arrival</h3><p>Find a seat in the garden.</p></div></li>
+          <li><time datetime="2027-02-20T16:00:00+01:00">4:00 PM</time><div><h3>The ceremony</h3><p>Join us as we exchange vows.</p></div></li>
+          <li><time datetime="2027-02-20T17:00:00+01:00">5:00 PM</time><div><h3>Cocktails &amp; photos</h3><p>Raise a glass with us in the garden.</p></div></li>
+          <li><time datetime="2027-02-20T18:30:00+01:00">6:30 PM</time><div><h3>Dinner &amp; dancing</h3><p>Stay for dinner, toasts and a spin on the dance floor.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="attire section" aria-labelledby="attire-title">
+        <p class="caps">Dress code</p>
+        <h2 id="attire-title">Garden formal</h2>
+        <p>Think flowing dresses, light suits and shoes you’ll enjoy wearing on grass. Soft greens and warm pinks are welcome.</p>
+        <ul class="swatches" aria-label="Suggested colors">
+          <li style="--swatch: #858d73"><span>Sage</span></li>
+          <li style="--swatch: #a0a16a"><span>Olive</span></li>
+          <li style="--swatch: #d0aba1"><span>Blush</span></li>
+          <li style="--swatch: #bb876f"><span>Clay</span></li>
+        </ul>
+      </section>
+
+      <section class="questions band" aria-labelledby="questions-title">
+        <h2 id="questions-title">Good to know</h2>
+        <div class="faq-list">
+          <details><summary>Where should we stay?</summary><p>Victoria Island and Ikoyi are both convenient areas to look for accommodation in Lagos.</p></details>
+          <details><summary>Is the ceremony outdoors?</summary><p>Yes. The ceremony takes place on the lawn, with dinner and dancing to follow.</p></details>
+          <details><summary>Should we bring a gift?</summary><p>We’re simply happy to celebrate with you. Please don’t feel obliged to bring a gift.</p></details>
+        </div>
+      </section>
+
+      <section class="rsvp section" id="rsvp" aria-labelledby="rsvp-title">
+        <div class="petal-divider" aria-hidden="true"><span>✧</span></div>
+        <h2 id="rsvp-title">Kindly reply</h2>
+        <p>We hope to see you on the day. Please reply by 6 February 2027.</p>
+        <form id="rsvp-form">
+          <label for="guest-name">Your name</label>
+          <input id="guest-name" name="name" autocomplete="name" maxlength="120" required>
+          <fieldset>
+            <legend>Will you be joining us?</legend>
+            <label class="radio-choice"><input type="radio" name="attendance" value="yes" required> Joyfully accepts</label>
+            <label class="radio-choice"><input type="radio" name="attendance" value="no"> Regretfully declines</label>
+          </fieldset>
+          <label for="message">A note for us <span>(optional)</span></label>
+          <textarea id="message" name="message" rows="3" maxlength="500"></textarea>
+          <button class="pill" type="submit">Try the RSVP <span class="diagonal-arrow" aria-hidden="true"></span></button>
+          <p class="sample-note">This sample won’t send or save your response.</p>
+          <p class="form-feedback" id="form-feedback" role="status" hidden></p>
+        </form>
+      </section>
+
+      <footer class="invite-footer">
+        <p>We can’t wait to celebrate with you.</p>
+        <p class="signoff">With love, Kachi <i>&amp;</i> Ada</p>
+        <button class="text-link" id="replay" type="button">Replay the envelope</button>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
