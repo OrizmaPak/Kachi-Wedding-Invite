@@ -50,6 +50,7 @@ function revealInvitation() {
   invitation.classList.add('is-revealing');
   window.scrollTo({ top: 0, behavior: 'instant' });
   headline.focus({ preventScroll: true });
+  queueNavigationUpdate();
   countdownTimer = window.setInterval(updateCountdown, 1000);
   updateCountdown();
 }
@@ -108,22 +109,8 @@ if (linkedSection()) {
   showCover();
 }
 
-function prepareScrollReveals() {
-  if (!('IntersectionObserver' in window) || reducedMotion.matches) return;
-
-  const entrance = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      entry.target.classList.remove('reveal-ready');
-      entrance.unobserve(entry.target);
-    }
-  }, { threshold: 0.12 });
-
-  for (const element of document.querySelectorAll('[data-reveal]')) {
-    if (element.getBoundingClientRect().bottom < 0) continue;
-    element.classList.add('reveal-ready');
-    entrance.observe(element);
-  }
+function prepareAmbientMotion() {
+  if (!('IntersectionObserver' in window)) return;
 
   const motion = new IntersectionObserver((entries) => {
     for (const entry of entries) {
@@ -139,10 +126,56 @@ const navigationLinks = Array.from(navigation.querySelectorAll('nav a'), (link) 
   link,
   section: document.querySelector(link.hash),
 }));
+const scrollScenes = Array.from(document.querySelectorAll('[data-reveal]'));
+const lastSceneStyle = new WeakMap();
 let scrollFrame;
+
+function documentTop(element) {
+  let top = 0;
+  for (let ancestor = element; ancestor; ancestor = ancestor.offsetParent) {
+    top += ancestor.offsetTop;
+  }
+  return top;
+}
+
+function updateScrollScenes() {
+  if (reducedMotion.matches || invitation.inert) return;
+
+  const height = window.innerHeight;
+  const scrollY = window.scrollY;
+  const ribbonTop = navigation.getBoundingClientRect().top;
+  const topEdge = ribbonTop <= 1 ? navigation.offsetHeight : 0;
+  const fadeDistance = Math.min(218, Math.max(112, height * 0.23));
+
+  // Measure the layout before writes so the movement never alters its own trigger point.
+  const states = scrollScenes.map((element) => {
+    const top = documentTop(element) - scrollY;
+    const bottom = top + element.offsetHeight;
+    const fromBelow = (height - top) / fadeDistance;
+    const fromAbove = (bottom - topEdge) / fadeDistance;
+    const progress = Math.min(1, Math.max(0, Math.min(fromAbove, fromBelow)));
+    const eased = progress * progress * (3 - 2 * progress);
+    const direction = fromAbove < fromBelow ? -1 : 1;
+    return { element, eased, direction };
+  });
+
+  for (const { element, eased, direction } of states) {
+    const opacity = eased.toFixed(3);
+    const drift = ((1 - eased) * direction * 32).toFixed(1);
+    const blur = (Math.pow(1 - eased, 1.4) * 6).toFixed(1);
+    const styleKey = opacity + ':' + drift + ':' + blur;
+    if (lastSceneStyle.get(element) === styleKey) continue;
+
+    element.style.setProperty('--scene-opacity', opacity);
+    element.style.setProperty('--scene-shift', drift === '0.0' ? 'none' : 'translateY(' + drift + 'px)');
+    element.style.setProperty('--scene-blur', blur === '0.0' ? 'none' : 'blur(' + blur + 'px)');
+    lastSceneStyle.set(element, styleKey);
+  }
+}
 
 function updateNavigation() {
   scrollFrame = undefined;
+  updateScrollScenes();
   const threshold = navigation.offsetHeight + 48;
   const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
   const progress = documentHeight > 0 ? Math.min(1, Math.max(0, window.scrollY / documentHeight)) : 0;
@@ -164,8 +197,9 @@ function queueNavigationUpdate() {
 
 window.addEventListener('scroll', queueNavigationUpdate, { passive: true });
 window.addEventListener('resize', queueNavigationUpdate);
+reducedMotion.addEventListener('change', queueNavigationUpdate);
 invitation.addEventListener('toggle', queueNavigationUpdate, true);
-prepareScrollReveals();
+prepareAmbientMotion();
 queueNavigationUpdate();
 
 const albumTrack = document.querySelector('#album-track');

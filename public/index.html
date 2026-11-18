@@ -42,11 +42,11 @@
         <img class="welcome-flower" src="assets/botanical-spray.webp" width="667" height="1000" alt="" decoding="async">
         <figure class="hero-portrait">
           <picture>
-            <source media="(max-width: 760px)" srcset="assets/photos/garden-walk-medium.webp">
-            <img src="assets/photos/garden-walk.webp" width="1120" height="1400" alt="Ginikachi and Godwin holding hands on a garden walk" fetchpriority="high">
+            <source media="(max-width: 760px)" srcset="assets/photos/garden-walk-cutout-medium.webp">
+            <img src="assets/photos/garden-walk-cutout.webp" width="1120" height="1402" alt="Ginikachi and Godwin holding hands" fetchpriority="high">
           </picture>
         </figure>
-        <div class="welcome-copy">
+        <div class="welcome-copy" data-reveal>
           <p class="caps hero-line">Save the date</p>
           <h1 id="invite-title" tabindex="-1">
             <span class="hero-line">Ginikachi</span>
@@ -72,6 +72,8 @@
 
       <section class="countdown scene" id="details" aria-labelledby="countdown-title">
         <div class="drift" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <img class="countdown-portrait" src="assets/photos/on-the-steps-medium.webp" width="560" height="700" alt="" loading="lazy" decoding="async">
+        <img class="countdown-ring" src="assets/wedding-bands.webp" width="900" height="675" alt="" loading="lazy" decoding="async">
         <div class="countdown-copy" data-reveal>
           <p class="caps">12 December 2026</p>
           <h2 id="countdown-title">Until we say <i>“I do”</i></h2>
@@ -86,6 +88,7 @@
       </section>
 
       <section class="families scene" aria-labelledby="families-title">
+        <img class="family-portrait" src="assets/photos/among-the-flowers-medium.webp" width="560" height="700" alt="" loading="lazy" decoding="async">
         <header class="section-heading" data-reveal>
           <h2 id="families-title">Together with<br><i>our families</i></h2>
           <p>We invite you to celebrate the marriage of<br><strong>Ginikachi Matilda Ibe</strong> &amp; <strong>Godwin Moses Onen</strong>.</p>
@@ -136,11 +139,13 @@
       <section class="attire scene" aria-labelledby="attire-title">
         <div class="section-heading" data-reveal>
           <h2 id="attire-title">Colours of <i>the day</i></h2>
+        </div>
+        <div class="swatch-ribbon" data-reveal>
           <ul class="swatches" aria-label="Wedding colours">
-            <li style="--swatch: #40175c">Deep purple</li>
-            <li style="--swatch: #cdb4e2">Lilac</li>
-            <li style="--swatch: #0a6044">Emerald green</li>
-            <li style="--swatch: #52613e">Army green</li>
+            <li style="--swatch: #40175c; --swatch-ink: #fff8ed"><span>Deep purple</span></li>
+            <li style="--swatch: #cdb4e2; --swatch-ink: #382441"><span>Lilac</span></li>
+            <li style="--swatch: #0a6044; --swatch-ink: #fff8ed"><span>Emerald green</span></li>
+            <li style="--swatch: #52613e; --swatch-ink: #fff8ed"><span>Army green</span></li>
           </ul>
         </div>
       </section>
