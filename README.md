@@ -1,6 +1,6 @@
 # Ginikachi & Godwin · Wedding invitation draft
 
-Tap the satin bow to release the two floral doors and reveal the wedding invitation. It includes a countdown, the details for both celebrations, a wedding colour palette, and an RSVP demo.
+Tap the satin bow to part the ribbon and swing open the invitation. The page includes a countdown, expandable family and ceremony details, the wedding colours, a toast, and an RSVP demo.
 
 The RSVP demonstrates the guest experience in the browser and does not send or store any responses.
 
