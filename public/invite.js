@@ -1,7 +1,7 @@
 const cover = document.querySelector('#cover');
 const invitation = document.querySelector('#invitation');
 const headline = document.querySelector('#invite-title');
-const openButtons = document.querySelectorAll('[data-open]');
+const bow = document.querySelector('.bow-button');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 const ceremony = new Date('2027-02-20T16:00:00+01:00');
@@ -24,46 +24,44 @@ function updateCountdown() {
   if (remaining === 0) window.clearInterval(countdownTimer);
 }
 
-function revealInvitation() {
-  if (!invitation.hidden) return;
+let openingTimer;
 
+function revealInvitation() {
+  if (cover.hidden) return;
+
+  window.clearTimeout(openingTimer);
   cover.hidden = true;
-  invitation.hidden = false;
+  invitation.inert = false;
   window.scrollTo({ top: 0, behavior: 'instant' });
   headline.focus({ preventScroll: true });
   countdownTimer = window.setInterval(updateCountdown, 1000);
   updateCountdown();
 }
 
-function openInvitation() {
-  if (cover.hidden || cover.classList.contains('is-preparing')) return;
+function showCover({ focusBow = false } = {}) {
+  window.clearInterval(countdownTimer);
+  invitation.inert = true;
+  cover.classList.remove('is-opening');
+  cover.hidden = false;
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  if (focusBow) bow.focus({ preventScroll: true });
+}
+
+bow.addEventListener('click', () => {
+  if (cover.classList.contains('is-opening')) return;
 
   if (reducedMotion.matches) {
     revealInvitation();
     return;
   }
 
-  cover.classList.add('is-preparing');
-  window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(() => {
-      cover.classList.add('is-opening');
-      window.setTimeout(revealInvitation, 740);
-    });
-  });
-}
-
-for (const button of openButtons) {
-  button.addEventListener('click', openInvitation);
-}
+  cover.classList.add('is-opening');
+  openingTimer = window.setTimeout(revealInvitation, 1440);
+});
 
 document.querySelector('#replay').addEventListener('click', () => {
-  window.clearInterval(countdownTimer);
-  cover.classList.remove('is-opening', 'is-preparing');
-  invitation.hidden = true;
-  cover.hidden = false;
   if (location.hash) history.replaceState(null, '', location.href.split('#')[0]);
-  window.scrollTo({ top: 0, behavior: 'instant' });
-  document.querySelector('.open-button').focus({ preventScroll: true });
+  showCover({ focusBow: true });
 });
 
 const rsvpForm = document.querySelector('#rsvp-form');
@@ -85,13 +83,23 @@ rsvpForm.addEventListener('submit', (event) => {
   rsvpForm.reset();
 });
 
-function revealLinkedSection() {
+function linkedSection() {
   const target = document.getElementById(location.hash.slice(1));
-  if (invitation.hidden && target?.closest('#invitation')) {
+  return target?.closest('#invitation') ? target : null;
+}
+
+function revealLinkedSection() {
+  const target = linkedSection();
+  if (!cover.hidden && target) {
     revealInvitation();
     target.scrollIntoView({ behavior: 'instant' });
   }
 }
 
 window.addEventListener('hashchange', revealLinkedSection);
-revealLinkedSection();
+if (linkedSection()) {
+  countdownTimer = window.setInterval(updateCountdown, 1000);
+  updateCountdown();
+} else {
+  showCover();
+}

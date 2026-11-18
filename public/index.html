@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f1e7">
-  <meta name="description" content="A sample garden wedding invitation, with an envelope to open and details for the celebration.">
+  <meta name="description" content="A sample garden wedding invitation, with floral doors to open and details for the celebration.">
   <title>Kachi &amp; Ada | Wedding Invitation</title>
   <link rel="icon" type="image/svg+xml" href="assets/monogram.svg">
   <link rel="stylesheet" href="styles.css">
@@ -12,31 +12,36 @@
 </head>
 <body>
   <main>
-    <section class="cover" id="cover" aria-label="Invitation envelope">
-      <header class="stationery-header">
-        <span class="caps">The wedding of</span>
-        <span class="monogram" aria-hidden="true">K<span>&amp;</span>A</span>
-        <span class="caps">Lagos, Nigeria</span>
-      </header>
-      <div class="cover-spread">
-        <div class="cover-copy">
-          <p class="caps cover-kicker">Together with our families</p>
-          <h1><span>You’re</span> <i>invited.</i></h1>
-          <div class="petal-divider" aria-hidden="true"><span>✧</span></div>
-          <p class="cover-date"><time datetime="2027-02-20">Saturday, 20 February 2027</time></p>
-          <button class="pill open-button" type="button" data-open>Open the invitation <span class="diagonal-arrow" aria-hidden="true"></span></button>
-        </div>
-        <button class="envelope" type="button" data-open aria-label="Open the ribbon-tied invitation">
-          <img src="assets/envelope.webp" width="1100" height="1375" alt="" fetchpriority="high">
-          <span class="envelope-panel envelope-panel-left" aria-hidden="true"></span>
-          <span class="envelope-panel envelope-panel-right" aria-hidden="true"></span>
-        </button>
+    <section class="cover" id="cover" aria-label="Closed wedding invitation" hidden>
+      <div class="gate-panel gate-panel-left" aria-hidden="true">
+        <span class="gate-floral gate-floral-top"></span>
+        <span class="gate-floral gate-floral-bottom"></span>
       </div>
-      <footer class="cover-footer caps"><span>Sample wedding invitation</span><span>20.02.27</span></footer>
-      <noscript><p class="noscript">Enable JavaScript to open this sample invitation.</p></noscript>
+      <div class="gate-panel gate-panel-right" aria-hidden="true">
+        <span class="gate-floral gate-floral-top"></span>
+        <span class="gate-floral gate-floral-bottom"></span>
+      </div>
+      <button class="bow-button" type="button" aria-controls="invitation">
+        <img src="assets/satin-bow.webp" width="840" height="630" alt="" fetchpriority="high">
+        <span>Open the invitation</span>
+      </button>
     </section>
 
-    <article class="invitation" id="invitation" hidden>
+    <article class="invitation" id="invitation">
+      <section class="welcome" id="welcome" aria-labelledby="invite-title">
+        <div class="welcome-florals" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="welcome-copy">
+          <p class="caps">Save the date</p>
+          <h1 id="invite-title" tabindex="-1"><span>Kachi</span> <i>&amp;</i> <span>Ada</span></h1>
+          <p class="welcome-note">We’re getting married!</p>
+          <p class="caps invite-date"><time datetime="2027-02-20">Saturday, 20 February 2027</time><br>Lagos, Nigeria</p>
+          <a class="pill" href="#details">Explore the invitation <span aria-hidden="true">↓</span></a>
+          <p class="sample-note">Sample invitation · details are placeholders</p>
+        </div>
+      </section>
+
       <header class="invite-nav">
         <a class="monogram" href="#welcome" aria-label="Back to the top">K<span>&amp;</span>A</a>
         <nav aria-label="Invitation">
@@ -45,18 +50,6 @@
           <a class="nav-rsvp" href="#rsvp">RSVP</a>
         </nav>
       </header>
-
-      <section class="welcome" id="welcome" aria-labelledby="invite-title">
-        <div class="welcome-copy">
-          <p class="caps">Together with our families</p>
-          <h1 id="invite-title" tabindex="-1">Kachi <i>&amp;</i> Ada</h1>
-          <p class="welcome-note">We would love for you to join us<br>as we say our vows and celebrate.</p>
-          <p class="caps invite-date"><time datetime="2027-02-20">Saturday, 20 February 2027</time> <span aria-hidden="true">·</span> Lagos, Nigeria</p>
-          <a class="pill" href="#details">Explore the invitation <span aria-hidden="true">↓</span></a>
-          <p class="sample-note">Sample invitation · wedding details are placeholders</p>
-        </div>
-        <img class="welcome-art" src="assets/garden.webp" width="1100" height="733" alt="" decoding="async">
-      </section>
 
       <section class="countdown band" id="details" aria-labelledby="countdown-title">
         <div class="petal-divider" aria-hidden="true"><span>✧</span></div>
@@ -137,7 +130,7 @@
       <footer class="invite-footer">
         <p>We can’t wait to celebrate with you.</p>
         <p class="signoff">With love, Kachi <i>&amp;</i> Ada</p>
-        <button class="text-link" id="replay" type="button">Replay the envelope</button>
+        <button class="text-link" id="replay" type="button">Replay the opening</button>
       </footer>
     </article>
   </main>

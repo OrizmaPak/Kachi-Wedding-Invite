@@ -1,6 +1,6 @@
 # Kachi & Ada · Wedding invitation sample
 
-Open the ribbon-tied envelope to reveal a sample garden wedding invitation. It includes a live countdown, venue and schedule, dress palette, guest information, and an RSVP demo.
+Tap the satin bow to release the two floral doors and reveal a sample garden wedding invitation. It includes a live countdown, venue and schedule, dress palette, guest information, and an RSVP demo.
 
 The partner name, dates, venue, and other wedding details are placeholders. The RSVP demonstrates the guest experience in the browser and does not send or store any responses.
 
