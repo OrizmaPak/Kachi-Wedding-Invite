@@ -1005,3 +1005,89 @@ html:has(.photo-viewer[open]) { overflow: hidden; }
   .location-map { border-left: 0; border-top: 1px solid #b6ac98; }
   .location-map iframe { min-height: 17rem; }
 }
+
+.gate-lining img { object-fit: contain; object-position: center bottom; }
+.section-portrait {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  height: auto;
+  mask-image: linear-gradient(#000 0%, #000 65%, transparent 100%);
+}
+.countdown-portrait {
+  inset: 7% auto auto -4%;
+  width: min(39vw, 35rem);
+  opacity: 0.22;
+}
+.family-portrait {
+  top: 2%;
+  right: -2%;
+  width: min(44vw, 36rem);
+  opacity: 0.21;
+}
+.events-portrait {
+  top: 5%;
+  left: -3%;
+  width: min(42vw, 33rem);
+  opacity: 0.17;
+}
+.attire { min-height: clamp(25rem, 46vw, 39rem); align-content: center; }
+.attire .section-heading { width: min(100%, 61rem); max-width: none; text-align: left; }
+.attire .section-heading h2 { max-width: 64%; }
+.attire .swatch-ribbon { margin-top: clamp(1.65rem, 5vw, 3.5rem); }
+.attire-portrait {
+  top: 0;
+  right: 6%;
+  width: min(45vw, 36rem);
+  opacity: 0.79;
+  filter: drop-shadow(0 0.75rem 1.65rem #7053673a);
+}
+.gallery-portrait {
+  top: -3%;
+  right: -4%;
+  width: min(39vw, 31rem);
+  opacity: 0.19;
+}
+.toast-portrait {
+  inset: auto 2% -18% auto;
+  height: auto;
+  width: min(52%, 34rem);
+  object-fit: contain;
+  mask-image: linear-gradient(#000 0%, #000 76%, transparent 100%);
+}
+.location-portrait {
+  bottom: -19%;
+  right: -3%;
+  width: min(44vw, 36rem);
+  opacity: 0.19;
+}
+.footer-portrait {
+  width: min(34vw, 25rem);
+  top: 10%;
+  right: -2%;
+  opacity: 0.26;
+}
+@media (max-width: 760px) {
+  .countdown-portrait { width: 65vw; left: -12%; opacity: 0.19; }
+  .family-portrait { width: 70vw; right: -13%; opacity: 0.18; }
+  .events-portrait { width: 67vw; left: -17%; }
+  .attire-portrait { width: 59vw; right: -2%; }
+  .gallery-portrait { width: 61vw; right: -14%; }
+  .toast-portrait {
+    top: -2%;
+    right: 50%;
+    bottom: auto;
+    translate: 50% 0;
+    width: min(83vw, 26rem);
+    height: auto;
+    mask-image: linear-gradient(#000 0%, #000 61%, transparent 88%);
+  }
+  .location-portrait { width: 61vw; bottom: 0; right: -11%; }
+  .footer-portrait { width: 52vw; top: 3%; right: -8%; }
+}
+@media (max-width: 480px) {
+  .attire { padding-top: 5.6rem; padding-bottom: 4.2rem; }
+  .attire .section-heading h2 { max-width: 57%; font-size: clamp(2.55rem, 10vw, 3.05rem); }
+  .attire .section-heading h2 i { display: block; }
+  .attire-portrait { top: 3%; right: -7%; width: 65vw; }
+}
