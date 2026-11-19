@@ -1097,7 +1097,7 @@ html:has(.photo-viewer[open]) { overflow: hidden; }
   position: absolute;
   inset: -15% -7% -14% 7%;
   z-index: -1;
-  opacity: 0.48;
+  opacity: 0.94;
 }
 .hero-portrait-backing img {
   width: 100%;
