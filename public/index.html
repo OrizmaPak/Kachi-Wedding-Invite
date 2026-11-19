@@ -32,6 +32,10 @@
     <section class="cover" id="cover" aria-label="Closed wedding invitation" hidden>
       <div class="gate-frame">
         <div class="gate-lining" aria-hidden="true">
+          <picture class="booklet-portrait">
+            <source media="(max-width: 760px)" srcset="assets/photos/booklet-embrace-medium.webp">
+            <img src="assets/photos/booklet-embrace.webp" width="1440" height="960" alt="" decoding="async">
+          </picture>
           <div class="booklet-art">
             <img class="booklet-botanical" src="assets/botanical-spray.webp" width="667" height="1000" alt="" decoding="async">
             <img class="booklet-rings" src="assets/wedding-bands.webp" width="900" height="675" alt="" decoding="async">
@@ -59,8 +63,12 @@
       <section class="welcome" id="welcome" aria-labelledby="invite-title">
         <div class="welcome-threads" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <img class="welcome-flower" src="assets/botanical-spray.webp" width="667" height="1000" alt="" decoding="async">
-        <div class="hero-illustration" aria-hidden="true">
-          <span class="hero-halo"></span>
+        <div class="hero-illustration">
+          <span class="hero-halo" aria-hidden="true"></span>
+          <picture class="hero-portrait-backing">
+            <source media="(max-width: 760px)" srcset="assets/photos/signature-portrait-medium.webp">
+            <img src="assets/photos/signature-portrait.webp" width="1120" height="1400" alt="Ginikachi and Godwin holding hands" decoding="async">
+          </picture>
           <img class="hero-rings" src="assets/wedding-bands.webp" width="900" height="675" alt="" decoding="async">
           <span class="hero-sparkle hero-sparkle-one"></span>
           <span class="hero-sparkle hero-sparkle-two"></span>
@@ -91,6 +99,7 @@
       </header>
 
       <section class="countdown scene" id="details" aria-labelledby="countdown-title">
+        <img class="section-portrait countdown-portrait" src="assets/photos/at-sunset-medium.webp" width="560" height="700" alt="" loading="lazy" decoding="async">
         <div class="drift" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <img class="countdown-ring" src="assets/wedding-bands.webp" width="900" height="675" alt="" loading="lazy" decoding="async">
         <div class="countdown-copy" data-reveal>
@@ -107,6 +116,7 @@
       </section>
 
       <section class="families scene" aria-labelledby="families-title">
+        <img class="section-portrait family-portrait" src="assets/photos/among-the-flowers-medium.webp" width="560" height="700" alt="" loading="lazy" decoding="async">
         <header class="section-heading" data-reveal>
           <h2 id="families-title">Together with<br><i>our families</i></h2>
           <p>We invite you to celebrate the marriage of<br><strong>Ginikachi Matilda Ibe</strong> &amp; <strong>Godwin Moses Onen</strong>.</p>
@@ -165,10 +175,12 @@
           <a href="#gifts">Gifts</a>
           <a href="#questions">FAQs</a>
           <a href="#note">A note from us</a>
+          <a href="#gallery">Gallery</a>
         </nav>
       </section>
 
       <section class="attire scene" id="attire" aria-labelledby="attire-title">
+        <img class="section-portrait attire-portrait" src="assets/photos/on-the-steps-medium.webp" width="560" height="700" alt="" loading="lazy" decoding="async">
         <div class="section-heading" data-reveal>
           <h2 id="attire-title">Dress <i>code</i></h2>
           <p>Elegant and comfortable. If you’d like to dress in our wedding colours, choose any of the shades below.</p>
@@ -263,6 +275,50 @@
           <p>We can’t wait to share the day with you.</p>
           <p class="signoff">With love,<br>Ginikachi <i>&amp;</i> Godwin</p>
         </div>
+      </section>
+
+      <section class="photo-gallery scene" id="gallery" aria-labelledby="gallery-title">
+        <header class="section-heading" data-reveal>
+          <h2 id="gallery-title">In <i>pictures</i></h2>
+        </header>
+        <div class="album" data-reveal>
+          <div class="album-track" id="album-track" aria-label="Portraits of Ginikachi and Godwin">
+            <a class="photo-print" href="assets/photos/garden-walk.webp">
+              <img src="assets/photos/garden-walk-medium.webp" width="560" height="700" alt="Ginikachi and Godwin holding hands on a garden walk" loading="lazy" decoding="async">
+              <span>A garden walk</span>
+            </a>
+            <a class="photo-print" href="assets/photos/at-sunset.webp">
+              <img src="assets/photos/at-sunset-medium.webp" width="560" height="700" alt="Ginikachi and Godwin together on a rooftop at sunset" loading="lazy" decoding="async">
+              <span>At sunset</span>
+            </a>
+            <a class="photo-print" href="assets/photos/on-the-steps.webp">
+              <img src="assets/photos/on-the-steps-medium.webp" width="560" height="700" alt="The couple in lilac and emerald on the stone steps" loading="lazy" decoding="async">
+              <span>On the steps</span>
+            </a>
+            <a class="photo-print" href="assets/photos/among-the-flowers.webp">
+              <img src="assets/photos/among-the-flowers-medium.webp" width="560" height="700" alt="The couple seated together under pink bougainvillea" loading="lazy" decoding="async">
+              <span>Among the flowers</span>
+            </a>
+          </div>
+          <div class="album-actions">
+            <button class="photo-control" type="button" data-album-step="-1" aria-label="Scroll to earlier photos" aria-controls="album-track" disabled><span class="photo-arrow" aria-hidden="true"></span></button>
+            <button class="photo-control" type="button" data-album-step="1" aria-label="Scroll to more photos" aria-controls="album-track"><span class="photo-arrow" aria-hidden="true"></span></button>
+          </div>
+        </div>
+        <dialog class="photo-viewer" aria-labelledby="photo-viewer-caption">
+          <div class="photo-viewer-bar">
+            <p class="caps" id="photo-viewer-count" aria-live="polite"></p>
+            <button class="photo-control photo-close" type="button" aria-label="Close photo" autofocus><span aria-hidden="true"></span></button>
+          </div>
+          <figure>
+            <img width="1120" height="1400" alt="" decoding="async">
+            <figcaption id="photo-viewer-caption"></figcaption>
+          </figure>
+          <div class="photo-viewer-actions">
+            <button class="photo-control" type="button" data-photo-step="-1" aria-label="Previous photo"><span class="photo-arrow" aria-hidden="true"></span></button>
+            <button class="photo-control" type="button" data-photo-step="1" aria-label="Next photo"><span class="photo-arrow" aria-hidden="true"></span></button>
+          </div>
+        </dialog>
       </section>
 
       <section class="toast scene" aria-labelledby="toast-title">
