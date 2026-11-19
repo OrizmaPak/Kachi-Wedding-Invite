@@ -7,6 +7,14 @@
     {
       "source": "/invite",
       "destination": "/index.html"
+    },
+    {
+      "source": "/assets/wedding-preview.jpg",
+      "destination": "/assets/wedding-preview-botanical.jpg"
+    },
+    {
+      "source": "/assets/wedding-share-card.jpg",
+      "destination": "/assets/wedding-preview-botanical.jpg"
     }
   ]
 }

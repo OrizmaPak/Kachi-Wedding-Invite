@@ -3,8 +3,6 @@ const invitation = document.querySelector('#invitation');
 const headline = document.querySelector('#invite-title');
 const bow = document.querySelector('.bow-button');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-const countdown = document.querySelector('.countdown');
-const welcome = document.querySelector('#welcome');
 const countdownGrid = document.querySelector('.countdown-grid');
 const countdownComplete = document.querySelector('#countdown-complete');
 
@@ -117,8 +115,9 @@ function prepareAmbientMotion() {
       entry.target.classList.toggle('has-motion', entry.isIntersecting);
     }
   }, { threshold: 0.15 });
-  motion.observe(countdown);
-  motion.observe(welcome);
+  for (const section of invitation.querySelectorAll('.welcome, .scene')) {
+    motion.observe(section);
+  }
 }
 
 const navigation = document.querySelector('.invite-nav');
@@ -201,66 +200,3 @@ reducedMotion.addEventListener('change', queueNavigationUpdate);
 invitation.addEventListener('toggle', queueNavigationUpdate, true);
 prepareAmbientMotion();
 queueNavigationUpdate();
-
-const albumTrack = document.querySelector('#album-track');
-const photoPrints = Array.from(albumTrack.querySelectorAll('.photo-print'));
-const albumControls = Array.from(document.querySelectorAll('[data-album-step]'));
-
-function updateAlbumControls() {
-  const maxScroll = albumTrack.scrollWidth - albumTrack.clientWidth;
-  albumControls[0].disabled = albumTrack.scrollLeft <= 1;
-  albumControls[1].disabled = albumTrack.scrollLeft >= maxScroll - 1;
-}
-
-for (const button of albumControls) {
-  button.addEventListener('click', () => {
-    const printStep = photoPrints[1].offsetLeft - photoPrints[0].offsetLeft;
-    albumTrack.scrollBy({
-      left: Number(button.dataset.albumStep) * printStep,
-      behavior: reducedMotion.matches ? 'instant' : 'smooth',
-    });
-  });
-}
-albumTrack.addEventListener('scroll', updateAlbumControls, { passive: true });
-window.addEventListener('resize', updateAlbumControls);
-updateAlbumControls();
-
-const photoViewer = document.querySelector('.photo-viewer');
-const viewerImage = photoViewer.querySelector('img');
-const viewerCaption = photoViewer.querySelector('figcaption');
-const viewerCount = document.querySelector('#photo-viewer-count');
-let photoIndex = 0;
-let photoTrigger;
-
-function displayPhoto(index) {
-  photoIndex = (index + photoPrints.length) % photoPrints.length;
-  const photo = photoPrints[photoIndex];
-  viewerImage.src = photo.href;
-  viewerImage.alt = photo.querySelector('img').alt;
-  viewerCaption.textContent = photo.querySelector('span').textContent;
-  viewerCount.textContent = (photoIndex + 1) + ' of ' + photoPrints.length;
-}
-
-for (const [index, photo] of photoPrints.entries()) {
-  photo.addEventListener('click', (event) => {
-    if (typeof photoViewer.showModal !== 'function' || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-    event.preventDefault();
-    photoTrigger = photo;
-    displayPhoto(index);
-    photoViewer.showModal();
-  });
-}
-for (const button of photoViewer.querySelectorAll('[data-photo-step]')) {
-  button.addEventListener('click', () => displayPhoto(photoIndex + Number(button.dataset.photoStep)));
-}
-photoViewer.addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-    event.preventDefault();
-    displayPhoto(photoIndex + (event.key === 'ArrowLeft' ? -1 : 1));
-  }
-});
-photoViewer.querySelector('.photo-close').addEventListener('click', () => photoViewer.close());
-photoViewer.addEventListener('click', (event) => {
-  if (event.target === photoViewer) photoViewer.close();
-});
-photoViewer.addEventListener('close', () => photoTrigger?.focus({ preventScroll: true }));

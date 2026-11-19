@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta property="og:title" content="Ginikachi &amp; Godwin | Wedding Invitation">
   <meta property="og:description" content="12 December 2026, 10:00 a.m. WAT. The Golden Heart Place, Cross River State, Nigeria.">
-  <meta property="og:image" content="https://ginikachi-and-godwin.vercel.app/assets/wedding-preview.jpg">
+  <meta property="og:image" content="https://ginikachi-and-godwin.vercel.app/assets/wedding-preview-botanical.jpg">
   <meta property="og:url" content="https://ginikachi-and-godwin.vercel.app/invite">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ginikachi &amp; Godwin">
@@ -13,16 +13,16 @@
   <meta name="description" content="12 December 2026, 10:00 a.m. WAT. The Golden Heart Place, Cross River State, Nigeria.">
   <title>Ginikachi &amp; Godwin | Wedding Invitation</title>
   <link rel="canonical" href="https://ginikachi-and-godwin.vercel.app/invite">
-  <meta property="og:image:secure_url" content="https://ginikachi-and-godwin.vercel.app/assets/wedding-preview.jpg">
+  <meta property="og:image:secure_url" content="https://ginikachi-and-godwin.vercel.app/assets/wedding-preview-botanical.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Ginikachi and Godwin wearing an olive quarter-zip, lilac gown, and bridal jewellery, with their wedding date: 12 December 2026.">
+  <meta property="og:image:alt" content="An illustrated invitation for Ginikachi and Godwin, with gold wedding bands, flowers, and the date 12 December 2026.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ginikachi &amp; Godwin | Wedding Invitation">
   <meta name="twitter:description" content="12 December 2026, 10:00 a.m. WAT. The Golden Heart Place, Cross River State, Nigeria.">
-  <meta name="twitter:image" content="https://ginikachi-and-godwin.vercel.app/assets/wedding-preview.jpg">
-  <meta name="twitter:image:alt" content="Ginikachi and Godwin wearing an olive quarter-zip, lilac gown, and bridal jewellery, with their wedding date: 12 December 2026.">
+  <meta name="twitter:image" content="https://ginikachi-and-godwin.vercel.app/assets/wedding-preview-botanical.jpg">
+  <meta name="twitter:image:alt" content="An illustrated invitation for Ginikachi and Godwin, with gold wedding bands, flowers, and the date 12 December 2026.">
   <link rel="icon" type="image/svg+xml" href="assets/monogram.svg">
   <link rel="stylesheet" href="styles.css">
   <script src="invite.js" defer></script>
@@ -32,10 +32,10 @@
     <section class="cover" id="cover" aria-label="Closed wedding invitation" hidden>
       <div class="gate-frame">
         <div class="gate-lining" aria-hidden="true">
-          <picture>
-            <source media="(max-width: 760px)" srcset="assets/photos/booklet-embrace-medium.webp">
-            <img src="assets/photos/booklet-embrace.webp" width="1440" height="960" alt="" decoding="async">
-          </picture>
+          <div class="booklet-art">
+            <img class="booklet-botanical" src="assets/botanical-spray.webp" width="667" height="1000" alt="" decoding="async">
+            <img class="booklet-rings" src="assets/wedding-bands.webp" width="900" height="675" alt="" decoding="async">
+          </div>
         </div>
         <div class="gate-panel gate-panel-left" aria-hidden="true">
           <div class="gate-face gate-front"></div>
@@ -59,12 +59,13 @@
       <section class="welcome" id="welcome" aria-labelledby="invite-title">
         <div class="welcome-threads" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <img class="welcome-flower" src="assets/botanical-spray.webp" width="667" height="1000" alt="" decoding="async">
-        <figure class="hero-portrait">
-          <picture>
-            <source media="(max-width: 760px)" srcset="assets/photos/signature-portrait-medium.webp">
-            <img src="assets/photos/signature-portrait.webp" width="1120" height="1400" alt="Ginikachi and Godwin holding hands, with matching watches and Ginikachi in a bridal tiara" fetchpriority="high">
-          </picture>
-        </figure>
+        <div class="hero-illustration" aria-hidden="true">
+          <span class="hero-halo"></span>
+          <img class="hero-rings" src="assets/wedding-bands.webp" width="900" height="675" alt="" decoding="async">
+          <span class="hero-sparkle hero-sparkle-one"></span>
+          <span class="hero-sparkle hero-sparkle-two"></span>
+          <span class="hero-sparkle hero-sparkle-three"></span>
+        </div>
         <div class="welcome-copy" data-reveal>
           <p class="caps hero-line">Save the date</p>
           <h1 id="invite-title" tabindex="-1">
@@ -82,8 +83,8 @@
           <a class="monogram" href="#welcome" aria-label="Back to the top">G<i>&amp;</i>G</a>
           <nav aria-label="Invitation">
             <a href="#details">Details</a>
-            <a href="#events">Events</a>
-            <a href="#gallery">Gallery</a>
+            <a href="#events">Schedule</a>
+            <a href="#guest-guide">Guest guide</a>
             <a class="nav-map" href="#location">Map</a>
           </nav>
         </div>
@@ -91,7 +92,6 @@
 
       <section class="countdown scene" id="details" aria-labelledby="countdown-title">
         <div class="drift" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        <img class="section-portrait countdown-portrait" src="assets/photos/at-sunset-medium.webp" width="560" height="700" alt="" loading="lazy" decoding="async">
         <img class="countdown-ring" src="assets/wedding-bands.webp" width="900" height="675" alt="" loading="lazy" decoding="async">
         <div class="countdown-copy" data-reveal>
           <p class="caps">12 December 2026</p>
@@ -107,7 +107,6 @@
       </section>
 
       <section class="families scene" aria-labelledby="families-title">
-        <img class="section-portrait family-portrait" src="assets/photos/among-the-flowers-medium.webp" width="560" height="700" alt="" loading="lazy" decoding="async">
         <header class="section-heading" data-reveal>
           <h2 id="families-title">Together with<br><i>our families</i></h2>
           <p>We invite you to celebrate the marriage of<br><strong>Ginikachi Matilda Ibe</strong> &amp; <strong>Godwin Moses Onen</strong>.</p>
@@ -126,7 +125,8 @@
 
       <section class="celebrations scene" id="events" aria-labelledby="events-title">
         <header class="section-heading" data-reveal>
-          <h2 id="events-title">Join us to <i>celebrate</i></h2>
+          <h2 id="events-title">Wedding <i>schedule</i></h2>
+          <p>Two celebrations, two Saturdays. Both ceremonies begin at <strong>10:00 a.m. WAT</strong>.</p>
         </header>
         <div class="event-letters">
           <details class="event" name="celebration" data-reveal>
@@ -155,13 +155,26 @@
         </div>
       </section>
 
-      <section class="attire scene" aria-labelledby="attire-title">
-        <img class="section-portrait attire-portrait" src="assets/photos/on-the-steps-medium.webp" width="560" height="700" alt="" loading="lazy" decoding="async">
+      <section class="guest-guide scene" id="guest-guide" aria-labelledby="guest-guide-title">
+        <header class="section-heading" data-reveal>
+          <h2 id="guest-guide-title">Guest <i>guide</i></h2>
+        </header>
+        <nav class="guide-links" aria-label="Guest guide chapters" data-reveal>
+          <a href="#attire">Dress code</a>
+          <a href="#accommodation">Accommodation</a>
+          <a href="#gifts">Gifts</a>
+          <a href="#questions">FAQs</a>
+          <a href="#note">A note from us</a>
+        </nav>
+      </section>
+
+      <section class="attire scene" id="attire" aria-labelledby="attire-title">
         <div class="section-heading" data-reveal>
-          <h2 id="attire-title">Colours of <i>the day</i></h2>
+          <h2 id="attire-title">Dress <i>code</i></h2>
+          <p>Elegant and comfortable. If you’d like to dress in our wedding colours, choose any of the shades below.</p>
         </div>
         <div class="swatch-ribbon" data-reveal>
-          <ul class="swatches" aria-label="Wedding colours">
+          <ul class="swatches" aria-label="Colours of the day">
             <li style="--swatch: #40175c; --swatch-ink: #fff8ed"><span>Deep purple</span></li>
             <li style="--swatch: #cdb4e2; --swatch-ink: #382441"><span>Lilac</span></li>
             <li style="--swatch: #0a6044; --swatch-ink: #fff8ed"><span>Emerald green</span></li>
@@ -170,48 +183,86 @@
         </div>
       </section>
 
-      <section class="photo-gallery scene" id="gallery" aria-labelledby="gallery-title">
+      <section class="accommodation scene guest-chapter" id="accommodation" aria-labelledby="stay-title">
+        <img class="chapter-icon" src="assets/guide-luggage.webp" width="480" height="430" alt="" loading="lazy" decoding="async">
         <header class="section-heading" data-reveal>
-          <h2 id="gallery-title">In <i>pictures</i></h2>
+          <h2 id="stay-title">Accommodation</h2>
+          <p>Travelling to celebrate with us? Look for a place to stay near the ceremony you’ll be attending.</p>
         </header>
-        <div class="album" data-reveal>
-          <div class="album-track" id="album-track" aria-label="Portraits of Ginikachi and Godwin">
-            <a class="photo-print" href="assets/photos/garden-walk.webp">
-              <img src="assets/photos/garden-walk-medium.webp" width="560" height="700" alt="Ginikachi and Godwin holding hands on a garden walk" loading="lazy" decoding="async">
-              <span>A garden walk</span>
-            </a>
-            <a class="photo-print" href="assets/photos/at-sunset.webp">
-              <img src="assets/photos/at-sunset-medium.webp" width="560" height="700" alt="Ginikachi and Godwin together on a rooftop at sunset" loading="lazy" decoding="async">
-              <span>At sunset</span>
-            </a>
-            <a class="photo-print" href="assets/photos/on-the-steps.webp">
-              <img src="assets/photos/on-the-steps-medium.webp" width="560" height="700" alt="The couple in lilac and emerald on the stone steps" loading="lazy" decoding="async">
-              <span>On the steps</span>
-            </a>
-            <a class="photo-print" href="assets/photos/among-the-flowers.webp">
-              <img src="assets/photos/among-the-flowers-medium.webp" width="560" height="700" alt="The couple seated together under pink bougainvillea" loading="lazy" decoding="async">
-              <span>Among the flowers</span>
-            </a>
-          </div>
-          <div class="album-actions">
-            <button class="photo-control" type="button" data-album-step="-1" aria-label="Scroll to earlier photos" aria-controls="album-track" disabled><span class="photo-arrow" aria-hidden="true"></span></button>
-            <button class="photo-control" type="button" data-album-step="1" aria-label="Scroll to more photos" aria-controls="album-track"><span class="photo-arrow" aria-hidden="true"></span></button>
-          </div>
+        <div class="stay-options" data-reveal>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Hotels+near+Akai+Effa,+Calabar,+Cross+River,+Nigeria" target="_blank" rel="noopener noreferrer">
+            <span><strong>Akai-Effa, Calabar</strong><small>Near the holy matrimony</small></span>
+            <span class="diagonal-arrow" aria-hidden="true"></span>
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Hotels+near+Aboh+Mbaise,+Imo+State,+Nigeria" target="_blank" rel="noopener noreferrer">
+            <span><strong>Aboh Mbaise, Imo State</strong><small>Near the traditional marriage</small></span>
+            <span class="diagonal-arrow" aria-hidden="true"></span>
+          </a>
         </div>
-        <dialog class="photo-viewer" aria-labelledby="photo-viewer-caption">
-          <div class="photo-viewer-bar">
-            <p class="caps" id="photo-viewer-count" aria-live="polite"></p>
-            <button class="photo-control photo-close" type="button" aria-label="Close photo" autofocus><span aria-hidden="true"></span></button>
-          </div>
-          <figure>
-            <img width="1120" height="1400" alt="" decoding="async">
-            <figcaption id="photo-viewer-caption"></figcaption>
-          </figure>
-          <div class="photo-viewer-actions">
-            <button class="photo-control" type="button" data-photo-step="-1" aria-label="Previous photo"><span class="photo-arrow" aria-hidden="true"></span></button>
-            <button class="photo-control" type="button" data-photo-step="1" aria-label="Next photo"><span class="photo-arrow" aria-hidden="true"></span></button>
-          </div>
-        </dialog>
+      </section>
+
+      <section class="gifts scene guest-chapter" id="gifts" aria-labelledby="gifts-title">
+        <img class="chapter-icon" src="assets/guide-gift.webp" width="480" height="430" alt="" loading="lazy" decoding="async">
+        <header class="section-heading" data-reveal>
+          <h2 id="gifts-title">Gifts</h2>
+          <p>Having you with us is the gift we’re looking forward to most. If you’d like to give something, here are a few ideas.</p>
+        </header>
+        <div class="guest-card disclosures" data-reveal>
+          <details>
+            <summary>Gift ideas <span class="disclosure-icon" aria-hidden="true"></span></summary>
+            <ul>
+              <li>A card with a favourite memory or a word of advice for us.</li>
+              <li>A gift card for something we can choose together.</li>
+              <li>Something thoughtful for our home.</li>
+            </ul>
+          </details>
+          <details>
+            <summary>Bank transfer <span class="disclosure-icon" aria-hidden="true"></span></summary>
+            <p>Bank details will be shared here once confirmed.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="questions scene guest-chapter" id="questions" aria-labelledby="questions-title">
+        <img class="chapter-icon" src="assets/guide-book.webp" width="480" height="430" alt="" loading="lazy" decoding="async">
+        <header class="section-heading" data-reveal>
+          <h2 id="questions-title">Frequently asked <i>questions</i></h2>
+        </header>
+        <div class="guest-card disclosures" data-reveal>
+          <details>
+            <summary>When do the celebrations start? <span class="disclosure-icon" aria-hidden="true"></span></summary>
+            <p>The traditional marriage is Saturday, 5 December 2026, and the holy matrimony is Saturday, 12 December 2026. Both start at <strong>10:00 a.m. WAT</strong>. <a href="#events">See the schedule</a>.</p>
+          </details>
+          <details>
+            <summary>Where is the wedding venue? <span class="disclosure-icon" aria-hidden="true"></span></summary>
+            <p>The holy matrimony is at The Golden Heart Place in Akai-Effa, Calabar. The traditional marriage takes place at The Bride Family House in Umuosi Lagwa Okwuato, Aboh Mbaise. <a href="#location">Open the Calabar area map</a>.</p>
+          </details>
+          <details>
+            <summary>What should I wear? <span class="disclosure-icon" aria-hidden="true"></span></summary>
+            <p>Choose something elegant and comfortable. Deep purple, lilac, emerald green, and army green are our <a href="#attire">wedding colours</a>.</p>
+          </details>
+          <details>
+            <summary>Where can I look for a place to stay? <span class="disclosure-icon" aria-hidden="true"></span></summary>
+            <p>The <a href="#accommodation">accommodation section</a> has map searches near both ceremony locations.</p>
+          </details>
+          <details>
+            <summary>Do I need to bring a gift? <span class="disclosure-icon" aria-hidden="true"></span></summary>
+            <p>No, we’ll be happy to see you. If you’d like to give something, take a look at our <a href="#gifts">gift ideas</a>.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="note scene guest-chapter" id="note" aria-labelledby="note-title">
+        <img class="chapter-icon" src="assets/guide-letter.webp" width="480" height="430" alt="" loading="lazy" decoding="async">
+        <header class="section-heading" data-reveal>
+          <h2 id="note-title">A note <i>from us</i></h2>
+        </header>
+        <div class="letter-paper" data-reveal>
+          <p>To our family and friends,</p>
+          <p>Thank you for walking alongside us and for making time to celebrate with us. It means so much to have the people we love there as we begin our marriage.</p>
+          <p>We can’t wait to share the day with you.</p>
+          <p class="signoff">With love,<br>Ginikachi <i>&amp;</i> Godwin</p>
+        </div>
       </section>
 
       <section class="toast scene" aria-labelledby="toast-title">
