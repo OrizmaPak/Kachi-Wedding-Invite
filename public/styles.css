@@ -271,6 +271,8 @@ html:has(.cover:not([hidden])) { overflow: hidden; }
   pointer-events: none;
 }
 .welcome-copy {
+  position: relative;
+  z-index: 2;
   width: min(87%, 70rem);
   margin-inline: auto;
   padding-left: clamp(0.4rem, 4vw, 4rem);
@@ -278,7 +280,7 @@ html:has(.cover:not([hidden])) { overflow: hidden; }
 .welcome-copy > .caps { color: var(--muted); }
 .welcome h1 {
   margin-block: 0.19em 0.145em;
-  font-size: clamp(5.35rem, 11vw, 11.3rem);
+  font-size: clamp(4.85rem, 9.2vw, 9.4rem);
   letter-spacing: -0.075em;
   line-height: 0.74;
 }
@@ -702,7 +704,7 @@ details[open] > :not(summary) { animation: rise 280ms ease both; }
   top: 51%;
   right: clamp(7%, 11vw, 15%);
   translate: 0 -50%;
-  width: min(40vw, 33rem);
+  width: min(46vw, 39rem);
   aspect-ratio: 1;
   display: grid;
   place-items: center;
@@ -764,7 +766,7 @@ details[open] > :not(summary) { animation: rise 280ms ease both; }
     translate: none;
     z-index: 0;
     align-self: center;
-    width: min(82vw, 27rem);
+    width: min(88vw, 28rem);
     max-height: none;
   }
   .welcome-flower { bottom: -7%; right: -15%; opacity: 0.55; }
@@ -855,7 +857,7 @@ details[open] > :not(summary) { animation: rise 280ms ease both; }
   .welcome h1 span + span { margin-left: 0; margin-top: 0.055em; }
   .welcome-note { margin-top: 0.6rem; }
   .invite-date { gap: 0.18rem; margin-block: 1rem 1.15rem; }
-  .hero-illustration { width: min(71vw, 19.25rem); }
+  .hero-illustration { width: min(88vw, 23rem); }
   .countdown-ring { width: min(47vw, 13rem); right: 3%; bottom: 5%; opacity: 0.67; }
   .swatches li::before { transform: skewX(-10deg); }
   .swatches li:first-child::before { left: -31%; }
@@ -1079,6 +1081,7 @@ html:has(.photo-viewer[open]) { overflow: hidden; }
 
 .booklet-portrait {
   position: absolute;
+  z-index: 0;
   inset: 0;
   opacity: 0.30;
   mask-image: radial-gradient(ellipse at 50% 39%, #000 21%, #000b 46%, transparent 77%);
@@ -1089,21 +1092,52 @@ html:has(.photo-viewer[open]) { overflow: hidden; }
   object-fit: cover;
   object-position: center 38%;
 }
-.booklet-art { margin-top: min(17vh, 10rem); }
+.booklet-florals {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.booklet-flower {
+  position: absolute;
+  height: auto;
+  max-width: none;
+  filter: drop-shadow(0 0.75rem 1.05rem #4e244620);
+}
+.booklet-flower-top-left { width: min(34vw, 28rem); left: -8%; top: -19%; rotate: 13deg; }
+.booklet-flower-top-right { width: min(20vw, 16rem); right: 1%; top: -17%; rotate: 41deg; opacity: 0.88; }
+.booklet-flower-bottom { width: min(35vw, 30rem); right: -10%; bottom: -25%; rotate: -150deg; opacity: 0.9; }
+.booklet-art { position: relative; z-index: 2; margin-top: min(17vh, 10rem); }
 
 .hero-illustration { isolation: isolate; }
-.hero-halo { z-index: -2; }
+.hero-halo { z-index: -3; }
+.hero-florals {
+  position: absolute;
+  z-index: -2;
+  inset: -31%;
+  overflow: visible;
+  pointer-events: none;
+}
+.hero-flower {
+  position: absolute;
+  height: auto;
+  max-width: none;
+  filter: drop-shadow(0 0.7rem 1rem #51314323);
+}
+.hero-flower-top { width: 62%; left: 4%; top: -24%; rotate: 8deg; opacity: 0.92; }
+.hero-flower-side { width: 43%; right: -10%; top: 0; rotate: -25deg; opacity: 0.88; }
+.hero-flower-bottom { width: 76%; right: -30%; bottom: -19%; rotate: -141deg; opacity: 0.94; }
 .hero-portrait-backing {
   position: absolute;
-  inset: -15% -7% -14% 7%;
+  inset: -25% -11% -28% -9%;
   z-index: -1;
-  opacity: 0.94;
+  opacity: 1;
 }
 .hero-portrait-backing img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  mask-image: linear-gradient(#000 0%, #000 73%, transparent 100%);
 }
 .hero-rings {
   width: 47%;
@@ -1147,7 +1181,13 @@ html:has(.photo-viewer[open]) { overflow: hidden; }
 }
 @media (max-width: 760px) {
   .album-track { grid-auto-columns: min(73vw, 16rem); }
-  .hero-portrait-backing { inset: -13% -9% -18% 2%; }
+  .booklet-flower-top-left { width: 53vw; left: -18%; top: -12%; }
+  .booklet-flower-top-right { width: 33vw; right: -8%; top: -16%; }
+  .booklet-flower-bottom { width: 56vw; right: -21%; bottom: -19%; }
+  .hero-portrait-backing { inset: -25% -14% -29% -12%; }
+  .hero-flower-top { display: none; }
+  .hero-flower-side { width: 46%; right: -13%; top: 3%; }
+  .hero-flower-bottom { width: 80%; right: -33%; bottom: -19%; }
   .countdown-portrait { width: 64vw; height: 73%; inset: 0 auto auto -15%; opacity: 0.16; }
   .family-portrait { width: 77vw; height: 80%; top: 6%; right: -19%; opacity: 0.18; }
   .attire-portrait { top: 0; right: -7%; width: 69vw; }
