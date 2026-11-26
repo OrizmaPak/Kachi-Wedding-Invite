@@ -9,12 +9,16 @@
       "destination": "/index.html"
     },
     {
+      "source": "/responses",
+      "destination": "/responses.html"
+    },
+    {
       "source": "/assets/wedding-preview.jpg",
-      "destination": "/assets/wedding-preview-botanical.jpg"
+      "destination": "/assets/wedding-preview-couple.jpg"
     },
     {
       "source": "/assets/wedding-share-card.jpg",
-      "destination": "/assets/wedding-preview-botanical.jpg"
+      "destination": "/assets/wedding-preview-couple.jpg"
     }
   ]
 }

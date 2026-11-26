@@ -263,3 +263,38 @@ photoViewer.addEventListener('click', (event) => {
   if (event.target === photoViewer) photoViewer.close();
 });
 photoViewer.addEventListener('close', () => photoTrigger?.focus({ preventScroll: true }));
+
+const rsvpForm = document.querySelector('#rsvp-form');
+const rsvpStatus = document.querySelector('#rsvp-status');
+
+rsvpForm?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const submitButton = rsvpForm.querySelector('button[type="submit"]');
+  const formData = new FormData(rsvpForm);
+  const payload = Object.fromEntries(formData.entries());
+
+  submitButton.disabled = true;
+  rsvpForm.setAttribute('aria-busy', 'true');
+  rsvpStatus.className = 'rsvp-status';
+  rsvpStatus.textContent = 'Sending your response…';
+
+  try {
+    const response = await fetch('/api/rsvp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.error || 'Your response could not be sent.');
+
+    rsvpForm.reset();
+    rsvpStatus.classList.add('is-success');
+    rsvpStatus.textContent = 'Thank you — your response has been saved for Ginikachi and Godwin.';
+  } catch (error) {
+    rsvpStatus.classList.add('is-error');
+    rsvpStatus.textContent = error.message || 'Something went wrong. Please try again.';
+  } finally {
+    submitButton.disabled = false;
+    rsvpForm.removeAttribute('aria-busy');
+  }
+});
